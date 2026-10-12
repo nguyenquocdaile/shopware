@@ -637,7 +637,7 @@ describe('src/module/sw-product/component/sw-product-variants/sw-product-variant
             });
             await flushPromises();
 
-            // the listed variants, which the mocked search emptied on mount
+            // restore the variants the mocked search cleared on mount
             Shopware.Store.get('swProductDetail').variants = [{ id: 1 }, { id: 2 }];
             wrapper.vm.toBeDeletedVariantIds = [{ id: 1 }, { id: 2 }];
             await wrapper.vm.onConfirmDelete();

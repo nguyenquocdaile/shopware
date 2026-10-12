@@ -195,8 +195,7 @@ export default class VariantsGenerator extends EventEmitter {
         this.product = product;
         const configuratorSettings = this.product.configuratorSettings;
 
-        // This check is done to set a default value for completely new generated variants
-        // without changing existing configuration, which includes a saved `displayParent: false` ("Variant")
+        // Default to "Main product" only if nothing is configured yet (`displayParent: false` means "Variant")
         if (
             !this.product.variantListingConfig ||
             (typeof this.product.variantListingConfig.displayParent !== 'boolean' &&
